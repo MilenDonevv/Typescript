@@ -26,7 +26,6 @@ const myNum: number = 25
 
 function App() {
 
-  // const [count, setCount ] = useState<User[] | null>(0)
   const [count, setCount ] = useState<number>(0)
   const [users, setUsers ] = useState<User[] | null>(null)
 
