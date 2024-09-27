@@ -1,6 +1,7 @@
 import { createContext, ReactElement, useEffect, useState } from "react"
 
 
+
 export type ProductType = {
     sku: string,
     name: string,
@@ -9,25 +10,25 @@ export type ProductType = {
 
 
 // statically setting the initial State instead of fetching it
-// const initState: ProductType[] = [
-//     {
-//         "sku": "item0001",
-//         "name": "Widget",
-//         "price": 9.99
-//     },
-//     {
-//         "sku": "item0002",
-//         "name": "Premium Widget",
-//         "price": 19.99
-//     },
-//     {
-//         "sku": "item0003",
-//         "name": "Deluxe Widget",
-//         "price": 29.99
-//     }
-// ]
+const initState: ProductType[] = [
+    {
+        "sku": "item0001",
+        "name": "Widget",
+        "price": 9.99
+    },
+    {
+        "sku": "item0002",
+        "name": "Premium Widget",
+        "price": 19.99
+    },
+    {
+        "sku": "item0003",
+        "name": "Deluxe Widget",
+        "price": 29.99
+    }
+]
 
-const initState: ProductType[] = []
+// const initState: ProductType[] = []
 
 export type UseProductsContextType = { products: ProductType[] }
 
@@ -43,21 +44,23 @@ type ChildrenType = { children?: ReactElement | ReactElement[] }
 export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
     const [products, setProducts] = useState<ProductType[]>(initState)
 
-    useEffect(() => {
-        const fetchProfucts = async (): Promise<ProductType[]> => {
-            const data = await fetch('http://localhost:3500/products')
-            .then(res => {
-                return res.json()
-            })
-            .catch(err => {
-                if (err instanceof Error) console.log(err.message)
-            })
+    // if there was a real API to pull the data from
+    
+    // useEffect(() => {
+    //     const fetchProfucts = async (): Promise<ProductType[]> => {
+    //         const data = await fetch('http://localhost:3500/products')
+    //         .then(res => {
+    //             return res.json()
+    //         })
+    //         .catch(err => {
+    //             if (err instanceof Error) console.log(err.message)
+    //         })
 
-            return data
-        }
+    //         return data
+    //     }
 
-        fetchProfucts().then(products => setProducts(products))
-    }, [])
+    //     fetchProfucts().then(products => setProducts(products))
+    // }, [])
 
     return (
         <ProductsContext.Provider value={{ products }}>
