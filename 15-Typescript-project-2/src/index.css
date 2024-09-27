@@ -32,7 +32,7 @@ img {
     /* React root div */
     min-height: 100vh;
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
 }
 
 .main,
@@ -42,9 +42,13 @@ img {
     margin: 0 1em;
 }
 
-.main {
+/* .main {
     display: flex;
     gap: 1rem;
+} */
+
+.main {
+    flex-grow: 1;
 }
 
 .main--products {
@@ -81,7 +85,6 @@ img {
 }
 
 .footer {
-    flex-grow: 1;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
