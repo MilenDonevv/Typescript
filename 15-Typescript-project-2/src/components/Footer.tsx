@@ -5,7 +5,7 @@ type PropsType = {
     viewCart: boolean,
 }
 
-const Footer = ({ viewCart }: boolean) => {
+const Footer = ({ viewCart }: PropsType) => {
     const { totalItems, totalPrice } = useCart()
 
     const year: number = new Date().getFullYear()
