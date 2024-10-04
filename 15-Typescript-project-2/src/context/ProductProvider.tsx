@@ -1,4 +1,4 @@
-import { createContext, ReactElement, useEffect, useState } from "react"
+import { createContext, ReactElement, useState } from "react"
 
 
 
@@ -42,7 +42,7 @@ type ChildrenType = { children?: ReactElement | ReactElement[] }
 
 // start creating the Provider
 export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
-    const [products, setProducts] = useState<ProductType[]>(initState)
+    const [products] = useState<ProductType[]>(initState)
 
     // if there was a real API to pull the data from
     
